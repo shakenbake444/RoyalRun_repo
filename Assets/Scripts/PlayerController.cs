@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     [SerializeField] private int moveSpeed;
     private Vector3 moveVector;
+    private Vector3 moveToPosition;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Move(InputAction.CallbackContext context)
@@ -26,6 +27,9 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         //rb.MovePosition(movement * (Time.deltaTime * moveSpeed));
-        rb.MovePosition(rb.position + moveVector * (moveSpeed * Time.fixedDeltaTime));
+        moveToPosition = rb.position + moveVector * (moveSpeed * Time.fixedDeltaTime);
+        
+        rb.MovePosition(Vector3.ClampMagnitude(moveToPosition, 4f));
+        
     }
 }
