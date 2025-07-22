@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
             movement = context.ReadValue<Vector2>();
-            Debug.Log(movement);
             moveVector.x = movement.x;
             moveVector.z = movement.y;
     }
@@ -29,7 +28,6 @@ public class PlayerController : MonoBehaviour
         //rb.MovePosition(movement * (Time.deltaTime * moveSpeed));
         moveToPosition = rb.position + moveVector * (moveSpeed * Time.fixedDeltaTime);
         
-        rb.MovePosition(Vector3.ClampMagnitude(moveToPosition, 4f));
-        
+        rb.MovePosition(new Vector3(Mathf.Clamp(moveToPosition.x, -3.8f, 3.8f), 0, Mathf.Clamp(moveToPosition.z, -0.4f, 2f)));
     }
 }
