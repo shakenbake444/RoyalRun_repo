@@ -5,12 +5,14 @@ public class LevelGenerator : MonoBehaviour
 {
 
     [SerializeField] GameObject chunkPrefab;
+    [SerializeField] GameObject obstaclePrefab;
     [SerializeField] int chunkAmount;
     [SerializeField] Transform chunkParent;
     private GameObject chunk;
-    GameObject tempChunk;
     private List<GameObject> chunkList;
     [SerializeField] private int chunkSpeed;
+    private float timer;
+    private Quaternion randoAngle;
 
 
     void Start()
@@ -29,7 +31,14 @@ public class LevelGenerator : MonoBehaviour
     {
         MoveChunks();
         DestroyStartAddEndChunk();
-        //AddEndChunk();
+        
+        timer += Time.deltaTime;
+        while (timer > 0.5f)
+        {
+            InstantiateObstacle();
+            timer = 0;
+        }
+
         
     }
 
@@ -60,4 +69,11 @@ public class LevelGenerator : MonoBehaviour
             }
         }
     }
+
+    void InstantiateObstacle()
+    {
+        randoAngle = Random.rotation;
+        Instantiate(obstaclePrefab, new Vector3(Random.Range(-3f, 3f), 6, 15), randoAngle);
+    }
+    
 }
