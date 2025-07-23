@@ -13,6 +13,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private int chunkSpeed;
     private float timer;
     [SerializeField] private List<GameObject> preFabList;
+    private int selector;
 
 
     void Start()
@@ -25,6 +26,9 @@ public class LevelGenerator : MonoBehaviour
             chunk = Instantiate(chunkPrefab, transform.position + new Vector3(0, 0, i * 10), Quaternion.identity, chunkParent);
             chunkList.Add(chunk);
         }
+        
+        GameManager.Instance.AddScore();
+
     }
 
     void Update()
@@ -72,7 +76,8 @@ public class LevelGenerator : MonoBehaviour
 
     void InstantiateObstacle()
     {
-        Instantiate(obstaclePrefab, new Vector3(Random.Range(-3f, 3f), 6, 15), Random.rotation);
+        selector = Random.Range(0, preFabList.Count);
+        Instantiate(preFabList[selector], new Vector3(Random.Range(-3f, 3f), 6, 15), Random.rotation);
     }
     
 }
