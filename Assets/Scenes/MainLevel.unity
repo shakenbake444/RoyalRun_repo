@@ -747,6 +747,11 @@ MonoBehaviour:
   chunkAmount: 10
   chunkParent: {fileID: 1168319840}
   chunkSpeed: 9
+  preFabList:
+  - {fileID: 8417099744040598680, guid: 4bab1636895a8c246afa06a08dca7feb, type: 3}
+  - {fileID: 3234265361426485749, guid: bc1393d20dc14b4409705202405bf31f, type: 3}
+  - {fileID: 1921213115450252778, guid: 6e31916bb51ce2d4ea6b22e65d1ccef6, type: 3}
+  - {fileID: 3616974800977762268, guid: 1519001d44fba5d4da9e69d399b26bac, type: 3}
 --- !u!4 &1384066174
 Transform:
   m_ObjectHideFlags: 0

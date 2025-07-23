@@ -12,7 +12,7 @@ public class LevelGenerator : MonoBehaviour
     private List<GameObject> chunkList;
     [SerializeField] private int chunkSpeed;
     private float timer;
-    private Quaternion randoAngle;
+    [SerializeField] private List<GameObject> preFabList;
 
 
     void Start()
@@ -72,8 +72,7 @@ public class LevelGenerator : MonoBehaviour
 
     void InstantiateObstacle()
     {
-        randoAngle = Random.rotation;
-        Instantiate(obstaclePrefab, new Vector3(Random.Range(-3f, 3f), 6, 15), randoAngle);
+        Instantiate(obstaclePrefab, new Vector3(Random.Range(-3f, 3f), 6, 15), Random.rotation);
     }
     
 }
