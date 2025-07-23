@@ -36,12 +36,12 @@ public class LevelGenerator : MonoBehaviour
         MoveChunks();
         DestroyStartAddEndChunk();
         
-        timer += Time.deltaTime;
-        while (timer > 0.5f)
-        {
-            InstantiateObstacle();
-            timer = 0;
-        }
+        // timer += Time.deltaTime;
+        // while (timer > 0.5f)
+        // {
+        //     InstantiateObstacle();
+        //     timer = 0;
+        // }
 
         
     }

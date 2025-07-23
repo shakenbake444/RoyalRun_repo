@@ -156,6 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3105516871468108273}
   - component: {fileID: 1033455581564160923}
+  - component: {fileID: 4128767599928508644}
   m_Layer: 0
   m_Name: ChunkPrefab
   m_TagString: Untagged
@@ -192,6 +193,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chunkSpeed: 0
+--- !u!114 &4128767599928508644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5866142627018779896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c4e213ffbb7cfb499209e2a9cef36ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fencePrefab: {fileID: 273201412831996507, guid: 7e197d05657034949b7bd02bfbe8ec32, type: 3}
+  lanes:
+  - -2.5
+  - 0
+  - 2.5
+  preFabList:
+  - {fileID: 273201412831996507, guid: 7e197d05657034949b7bd02bfbe8ec32, type: 3}
+  - {fileID: 3616974800977762268, guid: 1519001d44fba5d4da9e69d399b26bac, type: 3}
+  - {fileID: 1921213115450252778, guid: 6e31916bb51ce2d4ea6b22e65d1ccef6, type: 3}
 --- !u!1001 &579749745400998140
 PrefabInstance:
   m_ObjectHideFlags: 0
