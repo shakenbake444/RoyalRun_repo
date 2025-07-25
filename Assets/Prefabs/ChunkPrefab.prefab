@@ -206,14 +206,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fencePrefab: {fileID: 273201412831996507, guid: 7e197d05657034949b7bd02bfbe8ec32, type: 3}
-  lanes:
-  - -2.5
-  - 0
-  - 2.5
+  applePrefab: {fileID: 1136495826633209978, guid: 04b93ccf96339cb4c94a7b31c7eb425a, type: 3}
   preFabList:
   - {fileID: 273201412831996507, guid: 7e197d05657034949b7bd02bfbe8ec32, type: 3}
   - {fileID: 3616974800977762268, guid: 1519001d44fba5d4da9e69d399b26bac, type: 3}
   - {fileID: 1921213115450252778, guid: 6e31916bb51ce2d4ea6b22e65d1ccef6, type: 3}
+  - {fileID: 3234265361426485749, guid: bc1393d20dc14b4409705202405bf31f, type: 3}
+  - {fileID: 2685905351088989277, guid: cc275d8c9ac9f7d44871991d37509a2c, type: 3}
 --- !u!1001 &579749745400998140
 PrefabInstance:
   m_ObjectHideFlags: 0

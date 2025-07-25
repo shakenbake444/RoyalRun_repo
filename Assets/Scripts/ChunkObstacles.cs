@@ -2,50 +2,67 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using Random = System.Random;
-using System.Linq;
 
 public class ChunkObstacles : MonoBehaviour
 {
     [SerializeField] GameObject fencePrefab;
-    [SerializeField] private float[] lanes = { -2.5f, 0f, 2.5f };
+    [SerializeField] GameObject applePrefab;
+    private float[] lanes = { -2.5f, 0f, 2.5f };
     [SerializeField] private GameObject[] preFabList;
     private int amountOfObstacles;
-    private int[] shuffleArray = { 0, 1, 2 };
-    private List<int> shuffleList;
+    private int testInt;
+    private float appleSpawnChance = 0.3f;
 
+    List<int> availableLanes = new List<int> { 0, 1, 2 };
+    
     void Start()
     {
         SpawnFence();
-
-        shuffleList = shuffleArray.ToList();
-
+        SpawnApples();
     }
 
     private void SpawnFence()
     {
-        Shuffle(shuffleList);
-        
-        amountOfObstacles = UnityEngine.Random.Range(0, preFabList.Length);
-        Debug.Log(amountOfObstacles);
-        
-        int randomLaneIndex = UnityEngine.Random.Range(0, lanes.Length);
-        Vector3 spawnPosition = new Vector3(lanes[randomLaneIndex], transform.position.y, transform.position.z);
-        Instantiate(fencePrefab, spawnPosition, Quaternion.identity, this.transform);
-    }
-    
-    static void Shuffle<T>(List<T> list)
-    {
-        Random rng = new Random();
-        int n = list.Count;
+        int fencesToSpawn = UnityEngine.Random.Range(0, lanes.Length); // this statement chooses which lanes will have something in it
 
-        for (int i = n - 1; i > 0; i--)
+        for (int i = 0; i < fencesToSpawn; i++) // max index from 0 - 3
         {
-            int k = rng.Next(i + 1); // 0 <= k <= i
-            (list[i], list[k]) = (list[k], list[i]); // swap
+            int randomLaneIndex = UnityEngine.Random.Range(0, availableLanes.Count); // avaialble lanes here is 3 on first iteration and less each iteration
+            int selectedLane = availableLanes[randomLaneIndex]; // this picks the lane based on a random number between zero and how many lanes left.
+            availableLanes.RemoveAt(randomLaneIndex);
+            
+            Vector3 spawnPosition = new Vector3(lanes[selectedLane], transform.position.y, transform.position.z);
+            Instantiate(fencePrefab, spawnPosition, Quaternion.identity, this.transform);
+        }
+
+    }
+
+    void SpawnApples()
+    {
+        if (appleSpawnChance > UnityEngine.Random.value) return;
+        
+        int applesToSpawn = 1;
+
+        for (int i = 0; i < applesToSpawn; i++)
+        {
+            int randomLaneIndex = UnityEngine.Random.Range(0, availableLanes.Count);
+            int selectedLane = availableLanes[randomLaneIndex];
+            Vector3 spawnPosition = new Vector3(lanes[selectedLane], transform.position.y, transform.position.z);
+
+
+            for (int j = 0; j < 3; j++)
+            {
+                Instantiate(applePrefab, new Vector3(spawnPosition.x, spawnPosition.y, spawnPosition.z + (j - 2) * 2), Quaternion.identity, this.transform);
+            }
+
+            // for (i = 0; i < 2; i++)
+            // {
+            //     //
+            // }
+
+
         }
     }
     
 }
 
-//make a list of numbers of amountofObstacles in length
-//shuffle the list
