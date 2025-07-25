@@ -207,6 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fencePrefab: {fileID: 273201412831996507, guid: 7e197d05657034949b7bd02bfbe8ec32, type: 3}
   applePrefab: {fileID: 1136495826633209978, guid: 04b93ccf96339cb4c94a7b31c7eb425a, type: 3}
+  coinPrefab: {fileID: 1153488298835688676, guid: 7264bcd71cac17e4798f3502014e81aa, type: 3}
   preFabList:
   - {fileID: 273201412831996507, guid: 7e197d05657034949b7bd02bfbe8ec32, type: 3}
   - {fileID: 3616974800977762268, guid: 1519001d44fba5d4da9e69d399b26bac, type: 3}

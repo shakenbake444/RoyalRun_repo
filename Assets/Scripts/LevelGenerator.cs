@@ -27,7 +27,7 @@ public class LevelGenerator : MonoBehaviour
             chunkList.Add(chunk);
         }
         
-        GameManager.Instance.AddScore();
+        //GameManager.Instance.AddScore();
 
     }
 
