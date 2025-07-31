@@ -19,6 +19,6 @@ public class Pickup : MonoBehaviour
     
     private void RotateContinuously()
     {
-        transform.Rotate(new Vector3(0, 1, 0), Space.Self);
+        transform.Rotate(new Vector3(0, 1, 0) * 2 , Space.Self);
     }
 }
